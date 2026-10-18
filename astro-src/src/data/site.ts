@@ -15,8 +15,8 @@ export const site = {
   phoneRaw: "930916115",
   whatsapp: "51930916115", // +51 (Perú)
   email: "contacto@solucionestacontable.com",
-  hours: "Lun – Vie · 9:00 a.m. – 6:00 p.m.",
-  hoursSat: "Sábados · 9:00 a.m. – 1:00 p.m.",
+  hours: "Lun – Vie · 8:30 a.m. – 6:30 p.m.",
+  hoursSat: "Sábados · 8:30 a.m. – 1:30 p.m.",
   // Titular del estudio (del afiche oficial)
   accountant: {
     name: "Yakel Marcatoma Pozo",
