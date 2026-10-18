@@ -44,7 +44,7 @@ export const waLink = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(
 
 export const nav = [
   { label: "Inicio", href: "#inicio" },
-  { label: "Nosotros", href: "#nosotros" },
+  { label: "Nosotros", href: "#" },
   { label: "Servicios", href: "#servicios" },
   { label: "Formatos", href: "#" },
   { label: "Blog", href: "#" },
