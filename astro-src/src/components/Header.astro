@@ -2,18 +2,21 @@
 import { site, nav, waLink } from "../data/site";
 import WhatsAppIcon from "./WhatsAppIcon.astro";
 const base = import.meta.env.BASE_URL;
+const pinSvg = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>`;
 ---
 
 <header class="header" data-header>
   <!-- Barra superior -->
   <div class="topbar">
     <div class="container topbar__inner">
+      <span class="topbar__item" set:html={pinSvg} />
       <span class="topbar__item">
-        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5a1 1 0 0 1 1-1h3l1.5 4-2 1.5a11 11 0 0 0 5 5l1.5-2 4 1.5V18a1 1 0 0 1-1 1A15 15 0 0 1 4 5z"/></svg>
-        {site.phone}
+        <strong>{site.offices[0].city}:</strong>&nbsp;{site.offices[0].address}
       </span>
-      <span class="topbar__sep">·</span>
-      <span class="topbar__item">{site.hours}</span>
+      <span class="topbar__item">
+        <strong>{site.offices[1].city}:</strong>&nbsp;{site.offices[1].address}
+      </span>
+      <span class="topbar__item">Correo: {site.email}</span>
     </div>
   </div>
 
@@ -74,17 +77,29 @@ const base = import.meta.env.BASE_URL;
   .topbar__inner {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
+    flex-wrap: wrap;
     justify-content: flex-end;
-    height: 40px;
+    min-height: 40px;
+    padding-block: 6px;
   }
   .topbar__item {
     display: inline-flex;
     align-items: center;
     gap: 7px;
+    white-space: nowrap;
   }
-  .topbar__sep {
-    opacity: 0.5;
+  .topbar__item strong {
+    font-weight: 700;
+  }
+  @media (max-width: 940px) {
+    .topbar__inner {
+      justify-content: flex-start;
+      white-space: normal;
+    }
+    .topbar__item {
+      white-space: normal;
+    }
   }
 
   .navbar__inner {

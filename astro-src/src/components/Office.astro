@@ -1,0 +1,90 @@
+---
+import { site } from "../data/site";
+
+const pin = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>`;
+---
+
+<div class="section-divider"><span class="dot"></span></div>
+
+<section class="section" id="oficina">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Nuestra oficina</span>
+      <h2>Atención presencial y remota en Lima, Perú</h2>
+    </div>
+    <div class="office-card">
+      <div class="office-addr" set:html={`${pin} Lima, Perú · atención remota a nivel nacional`} />
+      <iframe
+        class="office-map"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=Calle+Ciro+Alegr%C3%ADa+Mz+E+Lt+06,+San+Juan+de+Miraflores+15824,+Peru&output=embed"
+        title="Ubicación de Soluciones Contables, San Juan de Miraflores"
+      ></iframe>
+    </div>
+    <p class="office-email">Correo: <a href={`mailto:${site.email}`}>{site.email}</a></p>
+  </div>
+</section>
+
+<style>
+  .section-divider {
+    display: flex;
+    align-items: center;
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  .section-divider::before,
+  .section-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gray-200) 50%, transparent);
+  }
+  .section-divider .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--blue);
+    flex: none;
+    margin: 0 10px;
+  }
+  .office-card {
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    max-width: 620px;
+    margin: 0 auto;
+  }
+  .office-addr {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.92rem;
+    color: #374051;
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .office-addr :global(svg) {
+    color: var(--blue);
+    flex: none;
+  }
+  .office-map {
+    aspect-ratio: 16 / 10;
+    width: 100%;
+    border: 0;
+    display: block;
+  }
+  .office-email {
+    text-align: center;
+    color: var(--gray-500);
+    font-size: 0.9rem;
+    margin-top: 22px;
+  }
+  .office-email a {
+    color: var(--blue);
+    text-decoration: none;
+  }
+</style>

@@ -7,14 +7,14 @@ export const site = {
   name: "Asesoría Contable",
   legalName: "Asesoría Contable, Tributaria y Laboral",
   tagline: "Tributaria & Laboral",
-  domain: "solucionestacontable.com",
+  domain: "solucionescontablesperu.com",
   description:
     "Asesoría contable, tributaria y laboral. Contabilidad, declaraciones SUNAT (RENTA, IGV, PLAME), planillas, constitución de empresas y más. Atención cercana y confiable.",
   // Contacto
   phone: "930 916 115",
   phoneRaw: "930916115",
   whatsapp: "51930916115", // +51 (Perú)
-  email: "asesoriacontabletributaria13@gmail.com",
+  email: "contacto@solucionestacontable.com",
   hours: "Lun – Vie · 9:00 a.m. – 6:00 p.m.",
   hoursSat: "Sábados · 9:00 a.m. – 1:00 p.m.",
   // Titular del estudio (del afiche oficial)
@@ -22,6 +22,11 @@ export const site = {
     name: "Yakel Marcatoma Pozo",
     cpc: "C.P.C. 8413",
   },
+  // Oficinas
+  offices: [
+    { city: "Lima", address: "Calle Ciro Alegría Mz. E Lote 6, San Juan de Miraflores" },
+    { city: "Huarochirí", address: "Jr. Augusto Bolognesi Mz. S2 Lt. 21, Pampa Pacta" },
+  ],
   // Redes
   social: {
     facebook: "#",
@@ -31,7 +36,7 @@ export const site = {
 };
 
 export const waMessage =
-  "Hola, me gustaría agendar una asesoría contable. ¿Podrían darme más información?";
+  "Hola Soluciones TA, visité la web y me gustaría recibir información sobre sus servicios contables y agendar una reunión con su equipo.";
 
 export const waLink = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(
   waMessage

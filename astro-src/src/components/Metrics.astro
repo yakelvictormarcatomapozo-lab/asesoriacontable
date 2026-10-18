@@ -1,83 +1,151 @@
 ---
-import { trustbar } from "../data/site";
-import Icon from "./Icon.astro";
+const check = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>`;
+const clock = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 2v10l7 3"/></svg>`;
+
+const points = [
+  "Asesoría personalizada por contadores colegiados (CCP).",
+  "Uso de tecnología ERP, tus documentos están seguros, accesibles y con respaldo de reportes en tiempo real a la medida de tu negocio.",
+  "Nos encargaremos de tu contabilidad con el mejor aliado para que operes con seguridad desde principio a fin.",
+];
 ---
 
-<section class="trust">
-  <div class="container trust__grid">
-    {trustbar.map((t) => (
-      <div class="trust__item reveal">
-        <Icon name={t.icon} cls="trust__icon" />
-        <div>
-          <strong class="trust__title">{t.title}</strong>
-          <span class="trust__label">{t.label}</span>
-        </div>
+<section class="trayectoria">
+  <div class="container trayectoria__grid">
+    <div>
+      <span class="eyebrow">Nuestra trayectoria</span>
+      <h2>Más de 10 años impulsando el cumplimiento tributario de empresas en el Perú</h2>
+      <p class="trayectoria__lead">En soluciones contables entendemos que una contabilidad desordenada genera multas, intereses y decisiones equivocadas. Por eso mantenemos tu control financiero al día, garantizando el cumplimiento ante SUNAT y entregando información clara y confiable para cada decisión.</p>
+      <ul class="trayectoria__points">
+        {points.map((p) => (
+          <li><span class="dot" set:html={check} />{p}</li>
+        ))}
+      </ul>
+    </div>
+    <div class="stat-grid">
+      <div class="stat-card"><b>+10</b><span>Años de Trayectoria</span></div>
+      <div class="stat-card"><b>+80</b><span>Empresas Asesoradas</span></div>
+      <div class="stat-card"><b>+12</b><span>Sectores Económicos</span></div>
+      <div class="stat-card"><b>99%</b><span>Clientes que nos recomiendan</span></div>
+      <div class="stat-card wide">
+        <div class="ico" set:html={clock} />
+        <div><b>Cumplimiento tributario sin contingencias</b><span>Garantizamos la tranquilidad tributaria de tu empresa ante SUNAT.</span></div>
       </div>
-    ))}
+    </div>
   </div>
 </section>
 
 <style>
-  .trust {
-    background: var(--navy);
-    color: #fff;
+  .trayectoria {
+    background: var(--gray-100);
+    padding: 84px 0;
   }
-  .trust__grid {
+  .trayectoria__grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    padding: 26px 0;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
   }
-  .trust__item {
+  .trayectoria h2 {
+    font-size: clamp(1.7rem, 2.6vw, 2.3rem);
+    margin: 14px 0 18px;
+  }
+  .trayectoria__lead {
+    color: #374051;
+    font-size: 1.02rem;
+    line-height: 1.7;
+    margin-bottom: 22px;
+    max-width: 48ch;
+  }
+  .trayectoria__points {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .trayectoria__points li {
+    display: flex;
+    gap: 10px;
+    font-size: 0.95rem;
+    color: #2b3242;
+    align-items: flex-start;
+  }
+  .trayectoria__points .dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--gray-50);
+    color: var(--blue);
+    flex: none;
     display: flex;
     align-items: center;
-    gap: 14px;
     justify-content: center;
-    position: relative;
+    margin-top: 2px;
   }
-  .trust__item:not(:last-child)::after {
-    content: "";
-    position: absolute;
-    right: -10px;
-    top: 12%;
-    height: 76%;
-    width: 1px;
-    background: rgba(255, 255, 255, 0.14);
+  .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
   }
-  .trust__item :global(.trust__icon) {
-    width: 30px;
-    height: 30px;
-    flex-shrink: 0;
+  .stat-card {
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: 16px;
+    padding: 26px 22px;
+    box-shadow: var(--shadow-sm);
+  }
+  .stat-card b {
+    display: block;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--blue);
+  }
+  .stat-card span {
+    font-size: 0.85rem;
+    color: var(--gray-500);
+    display: block;
+    margin-top: 4px;
+  }
+  .stat-card.wide {
+    grid-column: span 2;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--navy);
+    border: none;
+  }
+  .stat-card.wide b {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .stat-card.wide span {
+    color: #c7cfdb;
+  }
+  .stat-card.wide .ico {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.12);
     color: var(--blue-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
   }
-  .trust__title {
-    display: block;
-    font-size: 0.98rem;
-    line-height: 1.25;
-  }
-  .trust__label {
-    display: block;
-    font-size: 0.82rem;
-    color: #cfe0ff;
-  }
-  @media (max-width: 900px) {
-    .trust__grid {
-      grid-template-columns: 1fr 1fr;
-      gap: 22px 12px;
-    }
-    .trust__item {
-      justify-content: flex-start;
-    }
-    .trust__item:nth-child(2)::after {
-      display: none;
-    }
-  }
-  @media (max-width: 480px) {
-    .trust__grid {
+
+  @media (max-width: 980px) {
+    .trayectoria__grid {
       grid-template-columns: 1fr;
     }
-    .trust__item::after {
-      display: none !important;
+  }
+  @media (max-width: 640px) {
+    .stat-grid {
+      grid-template-columns: 1fr;
+    }
+    .stat-card.wide {
+      grid-column: span 1;
     }
   }
 </style>
