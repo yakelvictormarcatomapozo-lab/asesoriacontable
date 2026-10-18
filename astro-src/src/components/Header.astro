@@ -1,8 +1,9 @@
 ---
-import { site, nav, waLink } from "../data/site";
+import { site, nav, serviceDropdown, waLink } from "../data/site";
 import WhatsAppIcon from "./WhatsAppIcon.astro";
 const base = import.meta.env.BASE_URL;
 const pinSvg = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>`;
+const chevSvg = `<svg class="chev" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="m6 9 6 6 6-6"/></svg>`;
 ---
 
 <header class="header" data-header>
@@ -29,11 +30,29 @@ const pinSvg = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stro
 
       <nav class="nav" aria-label="Principal">
         {nav.map((item) => (
-          <a class="nav__link" href={item.href} data-nav-link>{item.label}</a>
+          item.label === "Servicios" ? (
+            <div class="nav__dropdown">
+              <a class="nav__link" href={item.href} data-nav-link>
+                {item.label}
+                <span set:html={chevSvg} />
+              </a>
+              <div class="nav__dropdown-panel">
+                {serviceDropdown.map((s) => (
+                  <a href={s.href}>
+                    <span class="nav__svc-name">{s.name}</span>
+                    <span class="nav__svc-desc">{s.desc}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <a class="nav__link" href={item.href} data-nav-link>{item.label}</a>
+          )
         ))}
       </nav>
 
       <div class="navbar__cta">
+        <div class="nav__lang"><a href="#" class="is-active">ES</a><span>|</span><a href="#">EN</a></div>
         <a class="btn btn--primary" href={waLink} target="_blank" rel="noopener">
           <WhatsAppIcon />
           Agenda una asesoría
@@ -136,10 +155,97 @@ const pinSvg = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stro
 
   .navbar__cta {
     display: flex;
+    align-items: center;
+    gap: 16px;
   }
   .navbar__cta .btn {
     padding: 11px 20px;
     font-size: 0.9rem;
+  }
+  .nav__lang {
+    display: flex;
+    gap: 6px;
+    font-size: 0.82rem;
+    font-weight: 700;
+  }
+  .nav__lang a {
+    color: var(--gray-400);
+  }
+  .nav__lang a.is-active {
+    color: var(--blue);
+  }
+  .nav__lang span {
+    opacity: 0.4;
+  }
+
+  .nav__dropdown {
+    position: relative;
+  }
+  .nav__dropdown > .nav__link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .nav__dropdown :global(.chev) {
+    transition: transform 0.2s ease;
+    flex: none;
+  }
+  .nav__dropdown:hover :global(.chev),
+  .nav__dropdown:focus-within :global(.chev) {
+    transform: rotate(180deg);
+  }
+  .nav__dropdown-panel {
+    position: absolute;
+    top: calc(100% + 14px);
+    left: -16px;
+    min-width: 300px;
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+    z-index: 60;
+  }
+  .nav__dropdown:hover .nav__dropdown-panel,
+  .nav__dropdown:focus-within .nav__dropdown-panel {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .nav__dropdown-panel a {
+    display: block;
+    padding: 10px 14px;
+    border-radius: 9px;
+  }
+  .nav__dropdown-panel a:hover {
+    background: var(--gray-50);
+  }
+  .nav__svc-name {
+    font-weight: 700;
+    color: #1f2430;
+    font-size: 0.92rem;
+    display: block;
+  }
+  .nav__svc-desc {
+    font-size: 0.78rem;
+    color: var(--gray-500);
+    display: block;
+    margin-top: 2px;
+  }
+  @media (max-width: 940px) {
+    .nav__dropdown-panel {
+      position: static;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      box-shadow: none;
+      border: none;
+      padding: 4px 0 8px 14px;
+    }
   }
 
   .burger {

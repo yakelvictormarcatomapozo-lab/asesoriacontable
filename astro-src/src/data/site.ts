@@ -44,10 +44,20 @@ export const waLink = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(
 
 export const nav = [
   { label: "Inicio", href: "#inicio" },
-  { label: "Servicios", href: "#servicios" },
   { label: "Nosotros", href: "#nosotros" },
-  { label: "Preguntas", href: "#faq" },
-  { label: "Contacto", href: "#contacto" },
+  { label: "Servicios", href: "#servicios" },
+  { label: "Formatos", href: "#" },
+  { label: "Blog", href: "#" },
+  { label: "Contáctanos", href: "#" },
+];
+
+export const serviceDropdown = [
+  { name: "Asesoría Contable", desc: "Gestión contable integral bajo NIIF", href: "#servicios" },
+  { name: "Asesoría Tributaria", desc: "Cumplimiento tributario integral", href: "#servicios" },
+  { name: "Outsourcing de Planillas", desc: "Gestión laboral y cumplimiento ante SUNAFIL", href: "#servicios" },
+  { name: "Constitución y Softlanding", desc: "Ingreso y operación de tu empresa en Perú", href: "#servicios" },
+  { name: "Formatos y Herramientas", desc: "Utilitarios propios para tu día a día contable", href: "#servicios" },
+  { name: "Regularización Contable", desc: "Saneamiento de contabilidad atrasada", href: "#servicios" },
 ];
 
 export const metrics = [
@@ -163,24 +173,57 @@ export const values = [
 
 export const faqs = [
   {
-    q: "¿Qué tipo de empresas pueden contratar sus servicios?",
-    a: "Trabajamos con personas naturales con negocio, emprendedores, MYPES y empresas consolidadas en cualquier régimen (NRUS, RER, RMT o General).",
+    q: "¿Atienden a MYPEs y pequeños negocios, o solo empresas grandes?",
+    a: "Sí, la mayoría de mis clientes son MYPEs peruanas. El servicio se adapta al tamaño y al rubro del negocio.",
   },
   {
-    q: "¿Atienden de manera virtual?",
-    a: "Sí. Brindamos atención virtual con la misma calidad de servicio, coordinando cada etapa por canales digitales.",
+    q: "¿Cómo se entregan los reportes contables?",
+    a: "En Excel formulado, mostrando de dónde sale cada cifra — nunca valores pegados sin sustento.",
   },
   {
-    q: "¿Cómo puedo enviar mi información contable?",
-    a: "Puedes enviarla por WhatsApp o correo electrónico. También coordinamos accesos digitales (SUNAT SOL) según lo que te resulte más cómodo.",
+    q: "¿Qué pasa si SUNAT me notifica una fiscalización?",
+    a: "Te acompaño en la respuesta y los descargos, con la documentación sustentatoria ordenada.",
   },
   {
-    q: "¿Qué pasa si tengo una fiscalización de SUNAT?",
-    a: "Te acompañamos durante todo el proceso: revisamos tu documentación, preparamos los descargos y atendemos los requerimientos de SUNAT para minimizar contingencias.",
+    q: "¿Incluyen planillas y PLAME en el servicio?",
+    a: "Sí, el outsourcing de planillas cubre boletas, PLAME, T-Registro y beneficios sociales.",
   },
   {
-    q: "¿Puedo solicitar una cotización sin compromiso?",
-    a: "Claro que sí. Escríbenos por WhatsApp y te damos una cotización clara y sin sorpresas tras una evaluación inicial gratuita, según el volumen y régimen de tu empresa.",
+    q: "¿Cómo protegen la confidencialidad de mi información?",
+    a: "Tu información financiera se maneja con reserva profesional, solo accesible para quien lleva tu cuenta.",
+  },
+  {
+    q: "¿Puedo acceder a los formatos sin ser cliente de asesoría?",
+    a: "Sí, los formatos y herramientas se venden de forma independiente a la asesoría contable.",
+  },
+  {
+    q: "¿Cómo puedo solicitar una cotización para un servicio específico?",
+    a: "Puedes solicitarla de tres formas: (1) a través del formulario de contacto de la web, (2) escribiéndome directo por WhatsApp, o (3) agendando una consulta inicial gratuita para evaluar lo que necesita tu empresa. Respondo en máximo 48 horas.",
+  },
+  {
+    q: "¿Qué documentación inicial se requiere para comenzar un diagnóstico de mi empresa?",
+    a: "Para un diagnóstico inicial se requiere: (1) estados financieros de los últimos 2-3 años, (2) libros y registros contables vigentes (PLE/SIRE), (3) planilla y boletas de pago recientes, (4) último RUC/ficha SUNAT, (5) acceso o copia de tus comprobantes electrónicos. Entrego un checklist detallado al confirmar el proyecto.",
+  },
+];
+
+export const testimonials = [
+  {
+    initials: "MC",
+    name: "María Campos",
+    company: "Empresa de ejemplo — Retail",
+    quote: "Desde que llevan mi contabilidad no me preocupo por los vencimientos de SUNAT; todo llega a tiempo y con explicación clara.",
+  },
+  {
+    initials: "JR",
+    name: "Jorge Rivas",
+    company: "Empresa de ejemplo — Servicios",
+    quote: "Me gusta que respondo directo con el contador, no con un call center. Eso me da confianza para crecer mi negocio.",
+  },
+  {
+    initials: "LP",
+    name: "Lucía Paredes",
+    company: "Empresa de ejemplo — Importación",
+    quote: "Las plantillas y formatos que comparten me ahorran horas cada mes en el cierre contable.",
   },
 ];
 

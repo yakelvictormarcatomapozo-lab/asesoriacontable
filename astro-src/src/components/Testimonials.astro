@@ -1,0 +1,92 @@
+---
+import { testimonials } from "../data/site";
+---
+
+<section class="section">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Casos de ejemplo</span>
+      <h2>Así describirían el servicio clientes satisfechos</h2>
+      <p>Testimonios de ejemplo para esta vista previa — se reemplazan por citas reales de tus clientes antes de publicar.</p>
+    </div>
+    <div class="testi__scroller">
+      {testimonials.map((t) => (
+        <div class="testi__card">
+          <div class="testi__top">
+            <div class="testi__avatar">{t.initials}</div>
+            <div>
+              <div class="testi__name">{t.name}</div>
+              <div class="testi__co">{t.company}</div>
+            </div>
+          </div>
+          <p class="testi__quote">"{t.quote}"</p>
+          <span class="testi__flag">Testimonio de ejemplo</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .testi__scroller {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    scroll-snap-type: x mandatory;
+  }
+  .testi__card {
+    scroll-snap-align: start;
+    flex: 0 0 340px;
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+  }
+  .testi__top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .testi__avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--gray-50);
+    color: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    flex: none;
+  }
+  .testi__name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #1f2430;
+  }
+  .testi__co {
+    font-size: 0.78rem;
+    color: var(--gray-500);
+  }
+  .testi__quote {
+    font-size: 0.9rem;
+    color: #3a4150;
+    line-height: 1.6;
+    font-style: italic;
+  }
+  .testi__flag {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--blue);
+    background: var(--gray-50);
+    padding: 3px 9px;
+    border-radius: 999px;
+  }
+</style>
